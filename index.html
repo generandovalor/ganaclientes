@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altersalud M&D: Tu Camino Hacia el Bienestar Natural</title>
+    <!-- Google Site Verification Tag -->
+    <meta name="google-site-verification" content="googlea15c748b45e7038f" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply text-gray-800 bg-gray-50;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        .section-padding {
+            @apply py-20 px-4 sm:px-6 lg:px-8; /* Aumentado el padding para mayor separación */
+        }
+        .btn-primary {
+            @apply inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        .btn-secondary {
+            @apply inline-flex items-center justify-center px-8 py-3 border border-green-600 text-base font-medium rounded-full shadow-lg text-green-600 bg-white hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        /* Custom styles for FAQ accordion */
+        .faq-item input[type="checkbox"] {
+            display: none;
+        }
+        .faq-item input[type="checkbox"]:checked ~ .faq-content {
+            max-height: 1000px; /* Large enough to show content */
+            padding-top: 1rem;
+        }
+        .faq-item input[type="checkbox"]:checked ~ .faq-question .arrow-icon {
+            transform: rotate(180deg);
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, padding-top 0.3s ease-in-out;
+        }
+        /* Responsive video container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000; /* Fallback background */
+            margin-bottom: 2rem; /* Space below the video */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Card hover effect */
+        .card-hover-effect {
+            transition: all 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex-shrink-0">
+                <!-- Logo de Altersalud M&D - Puedes reemplazarlo con tu logo real -->
+                <a href="#" class="text-2xl font-bold text-green-700">Altersalud M&D</a>
+            </div>
+            <div class="hidden md:block">
+                <div class="ml-10 flex items-baseline space-x-4">
+                    <a href="#inicio" class="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+                    <a href="#beneficios" class="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Beneficios</a>
+                    <a href="#equipo" class="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Equipo</a>
+                    <a href="#terapias" class="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Terapias</a>
+                    <a href="#testimonios" class="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Testimonios</a>
+                    <a href="#faqs" class="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">FAQs</a>
+                    <a href="#contacto" class="text-gray-600 hover:text-green-700 px-3 py-2 rounded-md text-sm font-medium">Contacto</a>
+                </div>
+            </div>
+            <!-- Mobile menu button -->
+            <div class="-mr-2 flex md:hidden">
+                <button type="button" class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" id="mobile-menu-button" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Icon when menu is closed. -->
+                    <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <!-- Icon when menu is open. -->
+                    <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" class="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium mobile-menu-link">Inicio</a>
+                <a href="#beneficios" class="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium mobile-menu-link">Beneficios</a>
+                <a href="#equipo" class="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium mobile-menu-link">Equipo</a>
+                <a href="#terapias" class="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium mobile-menu-link">Terapias</a>
+                <a href="#testimonios" class="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium mobile-menu-link">Testimonios</a>
+                <a href="#faqs" class="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium mobile-menu-link">FAQs</a>
+                <a href="#contacto" class="text-gray-600 hover:text-green-700 block px-3 py-2 rounded-md text-base font-medium mobile-menu-link">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- YouTube Video Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <h2 class="text-3xl font-extrabold text-gray-900 text-center sm:text-4xl mb-8">Conoce Altersalud M&D en Video</h2>
+            <div class="video-container rounded-xl shadow-xl">
+                <iframe src="https://www.youtube.com/embed/ZJEz6LgGkQQ" title="Altersalud Medicina Alternativa Monteria " frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Hero Section -->
+        <section id="inicio" class="relative bg-gradient-to-r from-green-50 to-green-100 overflow-hidden">
+            <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 lg:py-24">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
+                    <div class="relative z-10 lg:py-8 text-center lg:text-left">
+                        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl">
+                            Altersalud M&D: <span class="block text-green-600 xl:inline">Tu Camino Hacia el Bienestar Natural y Duradero</span>
+                        </h1>
+                        <p class="mt-3 text-lg text-gray-700 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                            ¿Lista para sentirte plena de nuevo? Encuentra alivio, vitalidad y un cuidado genuino. Somos especialistas en medicina alternativa, dedicados a mujeres que buscan una vida sin límites y llena de esperanza.
+                        </p>
+                        <div class="mt-10 flex flex-col sm:flex-row sm:justify-center lg:justify-start gap-4">
+                            <div class="rounded-full shadow-lg">
+                                <a href="https://wa.me/573135763917?text=Hola%20Dr%20Moises%20Mu%C3%B1oz%2C%20Requiero%20Mas%20Informacion%3F" target="_blank" class="btn-primary">
+                                    ¡Agenda Tu Consulta y Empieza Tu Transformación!
+                                </a>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-sm text-gray-500 text-center lg:text-left">Tu primera valoración sin costo</p>
+                    </div>
+                    <div class="mt-10 lg:mt-0 flex justify-center lg:justify-start">
+                        <div class="relative shadow-2xl rounded-xl overflow-hidden w-full max-w-sm lg:max-w-none">
+                            <!-- Image of a serene older woman smiling -->
+                            <img class="w-full h-auto object-cover rounded-xl" src="https://i.postimg.cc/8CFF2n3z/unnamed.png" alt="Mujer mayor serena Altersalud M&D">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="beneficios" class="section-padding bg-white">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-extrabold text-gray-900 text-center sm:text-4xl mb-12">Beneficios que Transforman Tu Vida</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <!-- Image for Benefit 1: Libérate del Dolor y Vive Plenamente. -->
+                        <img class="w-40 h-40 object-cover rounded-full mb-4 shadow-md" src="https://i.postimg.cc/gcNyp371/630aaa84-f471-49ed-8490-64a65895e919.jpg" alt="Manos en calma">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Libérate del Dolor y Vive Plenamente.</h3>
+                        <p class="text-gray-600">¿Cansada de que el dolor limite tu día a día? Con nuestras terapias alternativas, como el Biomagnetismo y la Acupresión, decimos adiós a esos dolores agudos y crónicos. Te ayudamos a recuperar la libertad de moverte, disfrutar y vivir cada momento sin molestias, devolviéndote la tranquilidad que mereces.</p>
+                    </div>
+                    <div class="text-center bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <!-- Image for Benefit 2: Abordaje Integral para una Salud Duradera. -->
+                        <img class="w-40 h-40 object-cover rounded-full mb-4 shadow-md" src="https://i.postimg.cc/KzVZ7qzd/f97781eb-cdb3-4908-aea6-edb5094cdf53.jpg" alt="Hoja, piedra y agua">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Abordaje Integral para una Salud Duradera.</h3>
+                        <p class="text-gray-600">En Altersalud M&D, no solo tratamos los síntomas, sino que buscamos el origen de tu bienestar. Con Sueroterapia Homeopática Ortomolecular, Terapia Neural y Biomagnetismo, te ofrecemos un camino de salud completo. Fortalece tu cuerpo desde adentro, revitaliza tu energía y construye una base sólida para una vida más activa y feliz, de forma natural.</p>
+                    </div>
+                    <div class="text-center bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <!-- Image for Benefit 3: Tu Bienestar, Nuestra Prioridad: Un Trato Genuino y Cercano. -->
+                        <img class="w-40 h-40 object-cover rounded-full mb-4 shadow-md" src="https://i.postimg.cc/15dj9kTx/unnamed.jpg" alt="Trato cercano profesional-paciente">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Tu Bienestar, Nuestra Prioridad: Un Trato Genuino y Cercano.</h3>
+                        <p class="text-gray-600">Sabemos lo importante que es sentirse escuchado y comprendido. En nuestro consultorio, te ofrecemos más que una cita: te brindamos un espacio de confianza donde puedes desahogarte y ser tú misma. Nos tomamos el tiempo para escucharte con atención, ofrecerte un acompañamiento humano y cercano, y asegurar que cada paso en tu camino hacia el bienestar se sienta seguro y apoyado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="equipo" class="section-padding bg-green-50">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-extrabold text-gray-900 text-center sm:text-4xl mb-12">Conoce a Tu Equipo en Altersalud M&D</h2>
+                <p class="text-lg text-gray-700 text-center mb-10">En Altersalud M&D, somos más que un consultorio; somos un equipo dedicado y apasionado por tu salud. Nuestra historia nació del deseo mutuo de ofrecer un enfoque integral y humano, combinando nuestras fortalezas para brindarte la atención que realmente merece. Conoce a las personas detrás de tu bienestar:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <div class="text-center bg-white p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <!-- Imagen del Dr. Moisés -->
+                        <img class="w-48 h-48 object-cover rounded-full mb-4 shadow-md" src="https://i.postimg.cc/Wzd0K0Rd/46efefa3-ef9c-4b88-b188-1cde8fd06f1e.jpg" alt="Imagen del Dr. Moisés Muñoz Pérez">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-2">Dr. Moisés Muñoz Pérez</h3>
+                        <p class="text-lg font-medium text-gray-700 mb-4">Tu Guía en Medicina Homeopática Ortomolecular</p>
+                        <p class="text-gray-600">El Dr. Moisés Muñoz Pérez, con una profunda vocación de servicio, es tu experto en **Sueroterapia Homeopática Ortomolecular y Consulta Médica Homeopática**. Su compromiso va más allá de un diagnóstico; se enfoca en comprender tu historia de salud completa y en fortalecer tu cuerpo desde su raíz, buscando un equilibrio natural. Con su guía, encontrarás un camino hacia la vitalidad y la energía duradera, siempre con la paciencia y la sabiduría que lo caracterizan.</p>
+                    </div>
+                    <div class="text-center bg-white p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <!-- Imagen de la Ft. Daniela -->
+                        <img class="w-48 h-48 object-cover rounded-full mb-4 shadow-md" src="https://i.postimg.cc/d3gGKDv4/0ca14766-4cd2-4f5a-a4cb-e2c064d7ecf8.jpg" alt="Imagen de la Ft. Daniela GzJanica Jaller">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-2">Ft. Daniela GzJanica Jaller</h3>
+                        <p class="text-lg font-medium text-gray-700 mb-4">Tu Aliada en Terapia del Dolor y Equilibrio</p>
+                        <p class="text-gray-600">Daniela GzJanica Jaller, como **Fisioterapeuta experta**, es la fuerza detrás de nuestra **Terapia del Dolor con Acupresión en las manos y Biomagnetismo**. Su misión es ayudarte a liberar esas molestias que te impiden disfrutar tu día a día, ofreciéndote alivio para dolores agudos y crónicos. Con una atención meticulosa y una empatía inigualable, Daniela te acompaña en la búsqueda de tu bienestar físico y emocional, restaurando el equilibrio y la calidad de vida que merece.</p>
+                    </div>
+                </div>
+                <div class="mt-10 text-center">
+                    <p class="text-xl text-gray-700 font-semibold">Nuestra Promesa:</p>
+                    <p class="text-lg text-gray-600 mt-2">Juntos, el Dr. Moisés y la Ft. Daniela trabajan de la mano para ofrecerte tratamientos personalizados, utilizando metodologías probadas y medicamentos de la más alta calidad. En Altersalud M&D, tu salud es nuestra prioridad y tu bienestar, nuestra mayor recompensa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Therapies Section -->
+        <section id="terapias" class="section-padding bg-white">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-extrabold text-gray-900 text-center sm:text-4xl mb-12">Nuestras Terapias: Caminos Hacia Tu Bienestar Integral</h2>
+                <p class="text-lg text-gray-700 text-center mb-10">En Altersalud M&D, entendemos que cada persona es única. Por eso, ofrecemos terapias cuidadosamente seleccionadas que trabajan en armonía para restaurar tu salud, aliviar tus molestias y devolverte la calidad de vida que anhelas. Descubre cómo podemos ayudarte:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <!-- Terapia del Dolor y Biomagnetismo -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <img class="w-full h-auto object-cover rounded-lg mb-4 shadow-md max-w-sm" src="https://i.postimg.cc/1zRnv30w/unnamed.png" alt="Manos sanadoras biomagnetismo">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-2">Terapia del Dolor y Biomagnetismo</h3>
+                        <p class="text-lg font-medium text-gray-700 mb-4">Despídete del Dolor y Encuentra el Equilibrio</p>
+                        <p class="text-gray-600 mb-3">¿El dolor te ha robado la tranquilidad? En Altersalud M&D, te ofrecemos un enfoque natural y efectivo para abordar tus molestias. La **Terapia del Dolor con Acupresión en las manos y el Biomagnetismo** trabajan de forma sinérgica para:</p>
+                        <ul class="list-disc list-inside text-gray-600 text-left w-full pl-5">
+                            <li class="mb-2">**Alivio Profundo de Dolores:** Ya sean esos dolores persistentes en articulaciones (artritis, artrosis), espalda, cabeza, o molestias agudas, buscamos la raíz del problema para brindarte un alivio duradero y mejorar tu movilidad.</li>
+                            <li class="mb-2">**Armonía Emocional:** El Biomagnetismo no solo actúa a nivel físico; también es un aliado poderoso para reequilibrar tus emociones. Te ayuda a liberar la carga del estrés emocional por cargas familiares, la ansiedad, la depresión y el agotamiento, invitándote a un estado de mayor calma y serenidad.</li>
+                            <li class="mb-2">**Vitalidad Renovada:** Al restaurar el equilibrio energético de tu cuerpo, sentirás cómo el cansancio crónico disminuye, dándote más energía para disfrutar de tus actividades diarias.</li>
+                        </ul>
+                        <p class="text-gray-600 mt-4">Esta terapia es una invitación a vivir sin las ataduras del dolor y a reencontrar tu equilibrio interno, permitiéndote disfrutar de cada día con mayor plenitud.</p>
+                    </div>
+
+                    <!-- Sueroterapia Homeopática Ortomolecular y Terapia Neural -->
+                    <div class="bg-gray-50 p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <img class="w-full h-auto object-cover rounded-lg mb-4 shadow-md max-w-sm" src="https://i.postimg.cc/XqjzJF9X/unnamed.png" alt="Vitalidad abstracta sueroterapia">
+                        <h3 class="text-2xl font-semibold text-green-700 mb-2">Sueroterapia Homeopática Ortomolecular y Terapia Neural</h3>
+                        <p class="text-lg font-medium text-gray-700 mb-4">Regenera y Fortalece Tu Cuerpo</p>
+                        <p class="text-gray-600 mb-3">Con el paso de los años, nuestro cuerpo necesita un apoyo extra para mantener su vitalidad. Nuestras sueroterapias están diseñadas para nutrirte desde adentro, brindándote los elementos que tu organismo necesita para funcionar óptimamente:</p>
+                        <ul class="list-disc list-inside text-gray-600 text-left w-full pl-5">
+                            <li class="mb-2">**Recupera Tu Energía y Combate la Fatiga:** Si la fatiga crónica y el agotamiento te acompañan, nuestros sueros homeopáticos ortomoleculares, ricos en nutrientes y antioxidantes, te ayudarán a revitalizarte, sentirte más activa y mejorar tu concentración.</li>
+                            <li class="mb-2">**Fortaleza Interna y Defensas Altas:** Reforzamos tu sistema inmunológico, ayudándote a prevenir enfermedades y a sentirte más resistente. También ofrecemos apoyo en casos de anemia, mejorando tu vitalidad general.</li>
+                            <li class="mb-2">**Bienestar Integral para la Menopausia y Más:** Nuestros tratamientos abordan de manera integral condiciones como los problemas digestivos y los desafíos asociados a la menopausia, buscando un bienestar completo para tu cuerpo y mente.</li>
+                            <li class="mb-2">**Alivio Dirigido para Dolores Articulares:** La Terapia Neural, a través de infiltraciones precisas, ofrece un alivio localizado para dolores articulares y otras molestias, complementando la sueroterapia para un efecto más completo y duradero.</li>
+                        </ul>
+                        <p class="text-gray-600 mt-4">Estas terapias son un verdadero impulso para tu bienestar, diseñadas para fortalecerte, regenerarte y devolverte la vitalidad para que disfrutes de una vida más plena y con mejor calidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonios" class="section-padding bg-green-50">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-extrabold text-gray-900 text-center sm:text-4xl mb-12">Historias que Inspiran: Recupera Tu Bienestar con Altersalud M&D</h2>
+                <p class="text-lg text-gray-700 text-center mb-10">En Altersalud M&D, nuestra mayor satisfacción es ver cómo nuestros pacientes transforman sus vidas. Estas son algunas de sus historias, relatos de quienes encontraron alivio, vitalidad y la esperanza para vivir plenamente de nuevo.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Testimonio 1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <img class="w-40 h-40 object-cover rounded-full mb-4 shadow-md" src="https://i.postimg.cc/fWVHHw5G/unnamed.png" alt="Testimonio Sofía R.">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">"Recuperé mi Paz y la Alegría de cada Día"</h3>
+                        <p class="text-sm text-gray-500 mb-4">Sofía R. (68 años)</p>
+                        <p class="text-gray-600 text-center">"Por mucho tiempo sentía un cansancio profundo y una tristeza que no me dejaba disfrutar de mis días. La rutina se me hacía pesada y me sentía sin energía. En Altersalud M&D, el Dr. Moisés y la Ft. Daniela no solo me dieron un tratamiento, me dieron la confianza para hablar y me escucharon de verdad. Con su enfoque personalizado, poco a poco fui recuperando mi vitalidad. Ahora me levanto con ganas, disfruto de los pequeños momentos y siento una paz que creí perdida. ¡Volví a ser yo!"</p>
+                    </div>
+                    <!-- Testimonio 2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <img class="w-40 h-40 object-cover rounded-full mb-4 shadow-md" src="https://i.postimg.cc/8CFF2n3z/unnamed.png" alt="Testimonio Elena P.">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">"De Volver a Caminar, a Jugar con Mis Nietos sin Dolor"</h3>
+                        <p class="text-sm text-gray-500 mb-4">Elena P. (72 años)</p>
+                        <p class="text-gray-600 text-center">"Mis rodillas eran mi mayor tormento. El dolor era constante y me había quitado las ganas de salir, incluso de caminar con mis nietos. Había probado de todo sin mucho éxito. Aquí en Altersalud M&D, me ofrecieron una combinación de Biomagnetismo y Sueroterapia que fue un milagro para mí. La atención fue tan humana y el seguimiento tan constante, que sentí un verdadero apoyo. Hoy puedo caminar sin dolor, ir al parque y, lo más importante, ¡jugar con mis nietos sin pensarlo dos veces! Me devolvieron mi libertad y mi alegría."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs Section -->
+        <section id="faqs" class="section-padding bg-white">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-extrabold text-gray-900 text-center sm:text-4xl mb-12">Preguntas Frecuentes: Aclaremos Tus Dudas sobre Tu Bienestar</h2>
+                <p class="text-lg text-gray-700 text-center mb-10">Es normal tener preguntas cuando buscas opciones para mejorar tu salud. Aquí respondemos a las inquietudes más comunes de nuestros pacientes para que te sientas con total confianza al dar el siguiente paso en Altersalud M&D. Si tu pregunta no está aquí, ¡no dudes en contactarnos!</p>
+
+                <div class="space-y-6">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer card-hover-effect">
+                        <label for="faq1" class="flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-semibold text-green-700">1. ¿Cuánto tiempo tarda en hacer efecto el tratamiento?</h3>
+                            <svg class="w-6 h-6 text-green-600 arrow-icon transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="faq1">
+                        <div class="faq-content text-gray-600 mt-2">
+                            <p>La rapidez con la que sientes mejoría puede variar según tu caso y el tipo de tratamiento. Sin embargo, muchos de nuestros pacientes comienzan a experimentar alivio y una mejora en su bienestar **desde las primeras sesiones o en las primeras semanas**. Nuestros tratamientos están diseñados para buscar resultados efectivos y duraderos, y en la consulta inicial te daremos una expectativa más clara para tu situación particular.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer card-hover-effect">
+                        <label for="faq2" class="flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-semibold text-green-700">2. ¿Estos tratamientos tienen contraindicaciones?</h3>
+                            <svg class="w-6 h-6 text-green-600 arrow-icon transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="faq2">
+                        <div class="faq-content text-gray-600 mt-2">
+                            <p>La seguridad de nuestros pacientes es nuestra máxima prioridad. Nuestras terapias, como el Biomagnetismo, la Sueroterapia Homeopática Ortomolecular y la Terapia Neural, son generalmente **seguras y con muy pocas contraindicaciones**, especialmente porque utilizamos un enfoque natural y personalizado. Durante tu valoración inicial, el Dr. Moisés y la Ft. Daniela revisarán tu historial de salud completo para asegurarse de que el tratamiento sea el más adecuado y seguro para ti, explicando cualquier precaución necesaria.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer card-hover-effect">
+                        <label for="faq3" class="flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-semibold text-green-700">3. ¿La medicina alternativa tiene respaldo científico o es lenta?</h3>
+                            <svg class="w-6 h-6 text-green-600 arrow-icon transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="faq3">
+                        <div class="faq-content text-gray-600 mt-2">
+                            <p>Existe un **creciente cuerpo de investigación y evidencia científica** que respalda la eficacia de muchas terapias alternativas y complementarias, especialmente cuando se integran de manera adecuada. En Altersalud M&D, nos basamos en conocimientos profundos y en la experiencia clínica. Además, lejos de ser lenta, nuestro enfoque personalizado y combinado busca generar resultados significativos y a menudo más rápidos de lo esperado, al abordar la raíz de los problemas y no solo los síntomas.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer card-hover-effect">
+                        <label for="faq4" class="flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-semibold text-green-700">4. ¿Los tratamientos de medicina alternativa son muy costosos?</h3>
+                            <svg class="w-6 h-6 text-green-600 arrow-icon transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="faq4">
+                        <div class="faq-content text-gray-600 mt-2">
+                            <p>Entendemos tu preocupación. En Altersalud M&D, consideramos que la salud es la mejor inversión. Ofrecemos **tratamientos efectivos y personalizados** que, a largo plazo, pueden evitar gastos mayores asociados a complicaciones de salud o el uso continuo de medicamentos sintéticos. Te invitamos a una **valoración inicial sin costo** (o con un descuento especial si aplica su incentivo), donde evaluaremos tu caso y te brindaremos un plan de tratamiento claro con toda la información sobre la inversión. ¡Tu bienestar no tiene precio!</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer card-hover-effect">
+                        <label for="faq5" class="flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-semibold text-green-700">5. ¿Cómo sé si la medicina alternativa es adecuada para mí?</h3>
+                            <svg class="w-6 h-6 text-green-600 arrow-icon transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="faq5">
+                        <div class="faq-content text-gray-600 mt-2">
+                            <p>La medicina alternativa es una excelente opción para quienes buscan un enfoque más natural, integral y personalizado para su salud, especialmente si no han encontrado soluciones completas en la medicina convencional, o si prefieren tratar sus condiciones con métodos que activen la capacidad de autocuración del cuerpo. Es ideal para dolores crónicos, fatiga, problemas digestivos, desequilibrios emocionales y para fortalecer el organismo en general. La mejor manera de saberlo es a través de nuestra **valoración inicial**, donde te escucharemos y te guiaremos sobre el mejor camino para ti.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item bg-gray-50 p-6 rounded-xl shadow-md cursor-pointer card-hover-effect">
+                        <label for="faq6" class="flex justify-between items-center faq-question">
+                            <h3 class="text-xl font-semibold text-green-700">6. ¿Ofrecen seguimiento después del tratamiento?</h3>
+                            <svg class="w-6 h-6 text-green-600 arrow-icon transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </label>
+                        <input type="checkbox" id="faq6">
+                        <div class="faq-content text-gray-600 mt-2">
+                            <p>¡Absolutamente! En Altersalud M&D, el **seguimiento continuo y el acompañamiento humano** son pilares fundamentales de nuestro servicio. Creemos que tu bienestar es un proceso, y estamos comprometidos a apoyarte en cada etapa. Después de tus sesiones, te brindaremos las indicaciones necesarias y estaremos disponibles para resolver tus dudas y ajustar el plan si es necesario, asegurando que mantengas los beneficios obtenidos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contacto" class="section-padding bg-green-100">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-6">Contáctanos: Tu Bienestar Nos Espera en Altersalud M&D</h2>
+                <p class="text-lg text-gray-700 mb-10">Estamos listos para escucharte y guiarte en tu camino hacia una vida con más vitalidad y menos dolor. No dudes en contactarnos para agendar tu cita, resolver tus dudas o simplemente conversar sobre cómo la medicina alternativa puede transformar tu salud.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center card-hover-effect">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Comunícate Directamente con Nosotros</h3>
+                        <p class="text-gray-600 mb-4">¡Envíanos un mensaje ahora! Nuestro equipo está listo para atenderte.</p>
+                        <!-- Enlace de WhatsApp principal con mensaje predefinido -->
+                        <a href="https://wa.me/573135763917?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20tratamientos%20en%20Altersalud%20M%26D." target="_blank" class="btn-primary w-full mb-3">
+                            WhatsApp +57 313 5763917
+                        </a>
+                        <!-- Botón "Pregúntale al Dr. Moisés" -->
+                        <a href="https://wa.me/573135763917?text=Hola%20Dr%20Moises%20Mu%C3%B1oz%2C%20Requiero%20Mas%20Informacion%3F" target="_blank" class="btn-secondary w-full">
+                            Pregúntale al Dr. Moisés
+                        </a>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover-effect">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Encuéntranos en Redes Sociales</h3>
+                        <p class="text-gray-600 mb-4">Síguenos para conocer más sobre nuestras terapias, consejos de salud y las historias de nuestros pacientes.</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.instagram.com/consultorio_medico_alternativo?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-gray-600 hover:text-green-700 text-3xl">
+                                <!-- Instagram Icon Font Awesome -->
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@moisemunoz25?_t=ZS-8ysD9ziixyU&_r=1" target="_blank" class="text-gray-600 hover:text-green-700 text-3xl">
+                                <!-- TikTok Icon Font Awesome -->
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.facebook.com/share/174QR4YVLL/" target="_blank" class="text-gray-600 hover:text-green-700 text-3xl">
+                                <!-- Facebook Icon Font Awesome -->
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg card-hover-effect">
+                        <h3 class="text-xl font-semibold text-green-700 mb-2">Visítanos en Nuestro Consultorio</h3>
+                        <p class="text-gray-600 mb-4">Altersalud M&D</p>
+                        <p class="text-gray-600 mb-4">Cl. 24 #19-80, Barrio: Pasatiempo<br>Montería, Córdoba, Colombia</p>
+                        <p class="text-gray-600 font-semibold mt-4">Horario de Atención:</p>
+                        <p class="text-gray-600">Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                        <p class="text-gray-600">Sábados: 9:00 AM - 1:00 PM</p>
+                    </div>
+                </div>
+
+                <!-- Google Map -->
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">¿Cómo llegar? Encuéntranos en el mapa:</h3>
+                <div class="relative rounded-xl overflow-hidden shadow-xl" style="padding-bottom: 56.25%; height: 0;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.438781174752!2d-75.87777472498443!3d8.744719591305707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e5a316ab1c303ff%3A0x87a5aade8dd47640!2sAltersalud%20M%26D!5e0!3m2!1ses!2sco!4v1755182160257!5m2!1ses!2sco" style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/573135763917?text=Hola%20Dr%20Moises%20Mu%C3%B1oz%2C%20Requiero%20Mas%20Informacion%3F" target="_blank" class="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition duration-300 ease-in-out z-50 transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C7.02 2 2.99 6.03 2.99 11.05C2.99 12.75 3.45 14.37 4.28 15.8C4.21 16.04 4.07 16.51 3.93 16.94L2.09 22.01L7.34 20.37C8.87 21.2 10.41 21.64 12.04 21.64C17.06 21.64 21.09 17.61 21.09 12.59C21.09 7.57 17.06 2 12.04 2ZM16.35 14.93C16.13 15.34 15.6 15.48 15.21 15.3C14.82 15.11 14.24 14.94 13.62 14.66C12.39 14.09 11.19 13.24 10.12 12.08C9.28 11.17 8.65 10.15 8.23 9.3C8.04 8.92 8.16 8.39 8.57 8.17C8.89 8 9.21 7.9 9.49 7.9C9.69 7.9 9.88 7.93 10.04 7.95C10.27 8.01 10.42 8.21 10.5 8.44C10.64 8.81 10.79 9.18 10.92 9.55C11.02 9.81 10.99 10.11 10.84 10.32C10.71 10.52 10.57 10.69 10.44 10.86C10.28 11.07 10.3 11.29 10.47 11.49C10.84 11.95 11.3 12.31 11.77 12.6C12.22 12.89 12.69 13.11 13.16 13.29C13.37 13.37 13.59 13.35 13.78 13.22C13.98 13.08 14.16 12.92 14.34 12.76C14.54 12.61 14.78 12.58 15.04 12.66C15.42 12.78 15.8 12.92 16.18 13.06C16.43 13.15 16.63 13.36 16.69 13.6C16.89 14.01 16.61 14.53 16.35 14.93Z"/></svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="mb-2">&copy; 2025 Altersalud M&D. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400">desarrollado por <a href="https://ganaclientes.netlify.app/" target="_blank" class="text-green-400 hover:text-green-300 font-semibold">ganaclientes</a></p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="https://www.instagram.com/consultorio_medico_alternativo" target="_blank" class="text-gray-400 hover:text-white">Instagram</a>
+                <a href="https://www.tiktok.com/@moisemunoz25" target="_blank" class="text-gray-400 hover:text-white">TikTok</a>
+                <a href="https://www.facebook.com/share/174QR4YVLL/" target="_blank" class="text-gray-400 hover:text-white">Facebook</a>
+                <a href="https://wa.me/573135763917?text=Hola%20Dr%20Moises%20Mu%C3%B1oz%2C%20Requiero%20Mas%20Informacion%3F" target="_blank" class="text-gray-400 hover:text-white">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu after clicking a link
+                if (mobileMenu.classList.contains('block')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Toggle mobile menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu if clicked outside or scrolled
+        window.addEventListener('scroll', () => {
+            if (mobileMenu.classList.contains('block') && mobileMenuButton.getAttribute('aria-expanded') === 'true') {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+        window.addEventListener('click', (event) => {
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                if (mobileMenu.classList.contains('block') && mobileMenuButton.getAttribute('aria-expanded') === 'true') {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
